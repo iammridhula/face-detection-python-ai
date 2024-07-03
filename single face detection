@@ -1,0 +1,9 @@
+import cv2
+trained_data=cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+img1=cv2.imread('FACE.jpg')
+gray_img=cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
+facecoordinates=trained_data.detectMultiScale(gray_img)
+print(facecoordinates)
+cv2.rectangle(img1,(194,56),(194+152,56+152),(0,255,0),2)
+cv2.imshow('gray image',img1)
+cv2.waitKey()
